@@ -2,12 +2,60 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lista de Alunos</title>
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gerenciamento de Produtos e Categorias</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<h1> Olá Mundo</h1>
+<h1>Gerenciamento de Produtos e Categorias</h1>
+
+<div class="container">
+    <!-- Painel de Categorias -->
+    <div class="card">
+        <h2>Categorias</h2>
+
+        <input type="text" id="nomeCategoria" placeholder="Nome da categoria" />
+        <div style="display:flex; gap:8px; margin-top:6px;">
+            <button id="btnCriarCategoria">Adicionar</button>
+            <button id="btnAtualizarCategorias" style="background:#6b7280">Atualizar</button>
+        </div>
+
+        <ul id="listaCategorias"></ul>
+    </div>
+
+    <!-- Painel de Produtos -->
+    <div class="card">
+        <h2>Produtos</h2>
+
+        <div class="search-bar">
+            <input type="text" id="buscaProduto" placeholder="Buscar produto por nome..." />
+        </div>
+
+        <input type="text" id="nomeProduto" placeholder="Nome do produto" />
+        <input type="number" id="precoProduto" placeholder="Preço (R$)" step="0.01" />
+        <select id="categoriaProduto">
+            <option value="">-- selecione uma categoria --</option>
+        </select>
+
+        <div style="display:flex; gap:8px; margin-top:6px;">
+            <button id="btnCriarProduto">Adicionar</button>
+            <button id="btnAtualizarProdutos" style="background:#6b7280">Atualizar</button>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Categoria</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody id="tabelaProdutos"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
