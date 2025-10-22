@@ -37,5 +37,15 @@ public class CategoriaController {
         categoriaService.excluirCategoria(id);
     }
 
+    @PutMapping("/{id}")
+    public Categoria atualizarCategoria(@PathVariable Long id, @RequestBody Categoria categoriaAtualizado ){
+         Categoria categoriaExistente = categoriaService.buscarCategoria(id);
+         if(categoriaExistente == null) return null;
+
+         categoriaExistente.setNome(categoriaAtualizado.getNome());
+
+         return categoriaService.cadastrarCategoria(categoriaAtualizado);
+    }
+
 
 }

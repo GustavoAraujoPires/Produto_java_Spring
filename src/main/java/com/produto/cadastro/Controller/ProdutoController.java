@@ -38,5 +38,18 @@ public class ProdutoController {
         Service.excluirProduto(id);
     }
 
+    @PostMapping("/{id}")
+    public Produto atualizarProdutos(@PathVariable Long id, @RequestBody Produto produtosAlterado){
+        Produto produtoExistente = Service.BuscarProdutoId(id);
+
+        if(produtoExistente == null) return null;
+
+        produtoExistente.setName(produtosAlterado.getName());
+        produtoExistente.setDescricao(produtosAlterado.getDescricao());
+        produtoExistente.setPreco(produtosAlterado.getPreco());
+
+        return Service.cadastarProduto(produtosAlterado);
+
+    }
 
 }
